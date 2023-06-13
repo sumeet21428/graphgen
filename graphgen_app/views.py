@@ -1,14 +1,10 @@
 # Create your views here.
-from django.shortcuts import render
-import pandas as pd
+
 from datetime import datetime
 import plotly.express as px
-import numpy as np
 from django.shortcuts import redirect
 from openpyxl import Workbook
-import plotly.graph_objects as go
 from django.shortcuts import render
-import pandas as pd
 import plotly.graph_objects as go
 from plotly.offline import plot
 import numpy as np
