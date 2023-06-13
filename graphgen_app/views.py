@@ -1007,6 +1007,7 @@ def process_data(df):
         df2 = df.transpose()
         df2.reset_index(inplace=True)
         df2 = df2.rename(columns={df2.columns[0]: 'Year'})
+        df2 = df2.dropna(how = 'all', subset = df2.columns[1:])
 
         return df2
 
@@ -1038,8 +1039,27 @@ def line_plot(df, title):
 
         return plot_div
     
+def line_plot2(df, titl):
+        fig = px.line(df, x='Year', y=df.columns, title=titl)
+        fig.update_layout(
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=True),
+            showlegend=True,
+            template='plotly_white'
+        )
+        for data in fig.data:
+            if "India" in data.name:
+                data.line.width = 2.5
+                data.mode = 'lines+markers'
+                data.marker.size = 5
+                data.line.color = "black"
+        graph_div18 = fig.to_html(full_html=False)
+        return graph_div18
+    
 def gcpi(request):
-    def line_plot(df,titl):
+    GCPI_ini = pd.read_excel("graphgen_app/files/API_FP.CPI.TOTL.ZG_DS2_en_excel_v2_5454868.xls", sheet_name=0)
+    GCPI = process_data(GCPI_ini)
+    def line_plot1(df, titl):
         fig = px.line(df, x='Year', y=df.columns, title=titl)
         fig.update_layout(
             xaxis=dict(showgrid=False),
@@ -1054,16 +1074,15 @@ def gcpi(request):
                 data.mode = 'lines+markers'
                 data.marker.size = 5
                 data.line.color = "black"
-        fig.show()
-    GCPI_ini = pd.read_excel("graphgen_app/files/API_FP.CPI.TOTL.ZG_DS2_en_excel_v2_5454868.xls", sheet_name=0)
-    GCPI = process_data(GCPI_ini)
-    graph_div17 = line_plot(GCPI, 'Global Inflation - Consumer Prices')
+        graph_div17 = fig.to_html(full_html=False)
+        return graph_div17
+    graph_div17 = line_plot1(GCPI, 'Global Inflation - Consumer Prices')
     return render(request, 'gcpi.html', {'graph_div17': graph_div17})
 
 def gfdi(request):    
     GFDI_ini = pd.read_excel("graphgen_app/files/API_BX.KLT.DINV.CD.WD_DS2_en_excel_v2_5454953.xls", sheet_name=0)
     GFDI = process_data(GFDI_ini)
-    graph_div18 = line_plot(GFDI, 'Global Foreign Direct Investment Inflows')
+    graph_div18 = line_plot2(GFDI, 'Global Foreign Direct Investment Inflows')
     return render(request, 'gfdi.html', {'graph_div18': graph_div18})
 
 def ggdp(request):    
@@ -1071,8 +1090,8 @@ def ggdp(request):
     GGDP_pcap_ini = pd.read_excel("graphgen_app/files/API_NY.GDP.PCAP.CD_DS2_en_excel_v2_5454823.xls", sheet_name=0)
     GGDP = process_data(GGDP_ini)
     GGDP_pcap = process_data(GGDP_pcap_ini)
-    graph_div19 = line_plot(GGDP, 'Global GDP')
-    graph_div191 = line_plot(GGDP_pcap, 'Gross Domestic Product Per Capita - Current USD')
+    graph_div19 = line_plot2(GGDP, 'Global GDP')
+    graph_div191 = line_plot2(GGDP_pcap, 'Gross Domestic Product Per Capita - Current USD')
     context = {
         'graph_div19' : graph_div19,
         'graph_div191' : graph_div191,
@@ -1082,7 +1101,7 @@ def ggdp(request):
 def GForex(request):    
     Gforex_ini = pd.read_excel("graphgen_app/files/API_FI.RES.TOTL.CD_DS2_en_excel_v2_5455044.xls", sheet_name=0)
     Gforex = process_data(Gforex_ini)
-    graph_div20 = line_plot(Gforex, 'Global Forex Reserves (Including Gold)')
+    graph_div20 = line_plot2(Gforex, 'Global Forex Reserves (Including Gold)')
     return render(request, 'GForex.html', {'graph_div20': graph_div20})
 
 def ggni(request):    
@@ -1090,8 +1109,8 @@ def ggni(request):
     GGNI_pcap_ini = pd.read_excel("graphgen_app/files/API_NY.GNP.PCAP.CD_DS2_en_excel_v2_5455395 (1).xls", sheet_name=0)
     GGNI = process_data(GGNI_ini)
     GGNI_pcap = process_data(GGNI_pcap_ini)
-    graph_div21 = line_plot(GGNI, 'Gross National Income - Atlas Method, Current USD')
-    graph_div211 = line_plot(GGNI_pcap, 'Gross National Income Per Capita - Atlas Method, Current USD')
+    graph_div21 = line_plot2(GGNI, 'Gross National Income - Atlas Method, Current USD')
+    graph_div211 = line_plot2(GGNI_pcap, 'Gross National Income Per Capita - Atlas Method, Current USD')
     context = {
         'graph_div21' : graph_div21,
         'graph_div211' : graph_div211,
@@ -1111,11 +1130,11 @@ def GEmissions(request):
     Meth = process_data(Meth_ini)
     Nox = process_data(Nox_ini)
     
-    graph_div22 = line_plot(Emm, 'Total Greenhouse Gas Emmissions (kt of CO2 equivalent)')
-    graph_div221 = line_plot(CO2, 'CO2 Emissions (kt)')
-    graph_div222 = line_plot(CO2_pcap, 'CO2 Emissions (metric tons per capita)')
-    graph_div223 = line_plot(Meth, 'Methane Emissions (kt of CO2 equivalent)')
-    graph_div224 = line_plot(Nox, 'Nitrous Oxide Emissions (thousand metric tons of CO2 equivalent)')
+    graph_div22 = line_plot2(Emm, 'Total Greenhouse Gas Emmissions (kt of CO2 equivalent)')
+    graph_div221 = line_plot2(CO2, 'CO2 Emissions (kt)')
+    graph_div222 = line_plot2(CO2_pcap, 'CO2 Emissions (metric tons per capita)')
+    graph_div223 = line_plot2(Meth, 'Methane Emissions (kt of CO2 equivalent)')
+    graph_div224 = line_plot2(Nox, 'Nitrous Oxide Emissions (thousand metric tons of CO2 equivalent)')
     
     context = {
         'graph_div22' : graph_div22,
@@ -1134,8 +1153,8 @@ def GForest(request):
     forest = process_data(forest_ini)
     forest_per = process_data(forest_per_ini)
     
-    graph_div23 = line_plot(forest, 'Forest Area (sq. km)')
-    graph_div231 = line_plot(forest_per, 'Forest Area (Percentage of land area)')
+    graph_div23 = line_plot2(forest, 'Forest Area (sq. km)')
+    graph_div231 = line_plot2(forest_per, 'Forest Area (Percentage of land area)')
     
     context = {
         'graph_div23' : graph_div23,
@@ -1149,7 +1168,7 @@ def GRenewables(request):
     
     renew = process_data(renew_ini)
     
-    graph_div24 = line_plot(renew, 'Renewable Energy Output (Percentage of total energy output)')
+    graph_div24 = line_plot2(renew, 'Renewable Energy Output (Percentage of total energy output)')
     
     
     context = {
