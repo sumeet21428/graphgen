@@ -1,0 +1,63 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+GDP
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                GDP : Constant
+            </div>
+            <div class="card-body">
+                <div id="graph11">
+                    {{ graph_div11 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates</b>
+            </div>
+            <div class="card-body">
+                <p><b>GDP(Constant):</b></p>
+                <p>Quarterly Growth:  <span style="color: {% if latest_general_q_month_growth_const < 0 %}red{% else %}green{% endif %}">{{ latest_general_q_month_growth_const }}</span></p>
+                <p>Yearly Growth: <span style="color: {% if latest_general_yearly_growth_const < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_const }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                GDP : Current
+            </div>
+            <div class="card-body">
+                <div id="graph12">
+                    {{ graph_div12 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates</b>
+            </div>
+            <div class="card-body">
+                <p><b>GDP(Current):</b></p>
+                <p>Quarterly Growth:  <span style="color: {% if latest_general_q_month_growth_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_q_month_growth_current }}</span></p>
+                <p>Yearly Growth: <span style="color: {% if latest_general_yearly_growth_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_current }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

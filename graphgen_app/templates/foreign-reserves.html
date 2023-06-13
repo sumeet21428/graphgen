@@ -1,0 +1,61 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Foreign Exchange Reserves (US Dollar Million)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig9">
+                        {{ graph_div9 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card float-end">
+                <div class="card-header">
+                    <b>Growth Rates</b>
+                </div>
+                <div class="card-body">
+
+                    <p>
+                        <b>Weekly Growth Rate:</b>
+                        <span style="color: {% if latest_general_weekly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_weekly_growth }}</span>
+                    </p>
+                    
+
+                    <p>
+                        <b>Monthly Growth Rate:</b>
+                        <span style="color: {% if latest_general_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth }}</span>
+                    </p>
+                    
+                    <p>
+                        <b>6-Month Growth Rate:</b>
+                        <span style="color: {% if latest_general_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth }}</span>
+                    </p>
+                    
+                    
+                    <p>
+                        <b>Yearly Growth Rate:</b>
+                        <span style="color: {% if latest_general_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth }}</span>
+                    </p>
+        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script | safe }}
+</script>
+{% endblock body %}

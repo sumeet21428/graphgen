@@ -1,0 +1,16 @@
+cvxpy==1.3.0
+ecos==2.0.12
+numpy==1.24.2
+osqp==0.6.2.post8
+pybind11==2.10.3
+qdldl==0.1.5.post3
+scipy==1.10.1
+scs==3.2.2
+Django==4.2.1 # or the specific version you are using
+django-crispy-forms==1.12.0  # for easy form styling
+django-environ==0.4.5  # for environment variable configuration
+django-extensions==3.1.3  # for additional Django management commands
+psycopg2-binary==2.9.1  # for PostgreSQL database support
+python-decouple==3.4  # for handling project configuration
+plotly
+

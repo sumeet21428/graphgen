@@ -1,0 +1,184 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+CPI Graph
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Combined, Current
+            </div>
+            <div class="card-body">
+                <div id="graph2">
+                    {{ graph_div2 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - CPI Combined, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_comb_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_month_growth_comb_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_comb_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_comb_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_comb_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Combined Inflyoy
+            </div>
+            <div class="card-body">
+                <div id="graph3">
+                    {{ graph_div3 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Rural Current
+            </div>
+            <div class="card-body">
+                <div id="graph4">
+                    {{ graph_div4 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - Rural, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_rural_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index :<span style="color: {% if latest_Food_Index_month_growth_rural_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_rural_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_rural_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_rural_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Rural Infloyoy
+            </div>
+            <div class="card-body">
+                <div id="graph5">
+                    {{ graph_div5 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Urban Current
+            </div>
+            <div class="card-body">
+                <div id="graph6">
+                    {{ graph_div6 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - CPI Combined, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_urban_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_month_growth_urban_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_urban_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_urban_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_urban_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Urban Inflyoy
+            </div>
+            <div class="card-body">
+                <div id="graph7">
+                    {{ graph_div7 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,138 @@
+
+{% extends 'graph.html' %}
+
+{% block title %}
+Foreign Direct Investment Graph
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Foreign Investment Inflows</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph16">
+                        {{ graph_div16 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Heatmaps -->
+    <div class="row mt-10">
+        <div class="col-md-4">
+            {{ FDI_heatmap | safe }}
+        </div>
+
+        <div class="col-md-4">
+            {{ NPI_heatmap | safe }}
+        </div>
+
+        <div class="col-md-4">
+            {{ net_heatmap | safe }}
+        </div>
+    </div>
+
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Direct Investments</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph161">
+                        {{ graph_div161 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Portfolio Investments</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph162">
+                        {{ graph_div162 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script16 | safe }}
+</script>
+{% endblock body %}
+
+
+{% comment %} {% extends 'graph.html' %}
+
+{% block title %}
+Foreign Direct Investment
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FDI_FPI_plot
+            </div>
+            <div class="card-body">
+                <div id="FDI_FPI_plot">
+                    {{ FDI_FPI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FDI_plot
+            </div>
+            <div class="card-body">
+                <div id="FDI_plot">
+                    {{ FDI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FPI_plot 
+            </div>
+            <div class="card-body">
+                <div id="FPI_plot">
+                    {{ FPI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+{% endblock body %} {% endcomment %}
+
+

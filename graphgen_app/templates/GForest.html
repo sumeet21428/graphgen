@@ -1,0 +1,45 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Forest Area (sq. km)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig23">
+                        {{ graph_div23 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Forest Area (Percentage of land area)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig231">
+                        {{ graph_div231 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script23 | safe }}
+</script>
+{% endblock body %}

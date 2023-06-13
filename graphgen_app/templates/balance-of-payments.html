@@ -1,0 +1,24 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+Balance of Payments
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Balance of Payments
+                </div>
+                <div class="card-body">
+                    <div id="graph14" style="width: 130%; height: 550px;">
+                        {{ graph_div14 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+

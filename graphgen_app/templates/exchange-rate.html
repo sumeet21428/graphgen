@@ -1,0 +1,43 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+Exchange Rate Graph
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Exchange Rate</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph8">
+                        {{ graph_div8 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 float-end">
+            <div class="card">
+                <div class="card-header">
+                    <b>Exchange Rate</b>
+                </div>
+                <div class="card-body">
+                    
+                    <p>Daily USD Growth: <span style="color: {% if daily_usd_growth < 0 %}red{% else %}green{% endif %}">{{ daily_usd_growth }}</span></p>
+                    <p>Daily Pound Growth: <span style="color: {% if daily_pound_growth < 0 %}red{% else %}green{% endif %}">{{  daily_pound_growth }}</span></p>
+                    <p>Daily Euro Growth: <span style="color: {% if daily_euro_growth < 0 %}red{% else %}green{% endif %}">{{ daily_euro_growth }}</span></p>
+                    <p>Daily Yen Growth: <span style="color: {% if daily_yen_growth < 0 %}red{% else %}green{% endif %}">{{ daily_yen_growth }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script16 | safe }}
+</script>
+{% endblock body %}

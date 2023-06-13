@@ -1,0 +1,59 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>WPI Data</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig1">
+                        {{ graph_div1 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card float-end">
+                <div class="card-header">
+                    <b>Growth Rates</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>Monthly Growth Rates:</b>
+                        <p>All Commodities: <span style="color: {% if latest_all_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_all_month_growth }}</span></p>
+                        <p>Fuel and Power: <span style="color: {% if latest_Fuel_and_Power_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_Power_month_growth }}</span></p>
+                        <p>Food Index: <span style="color: {% if latest_Food_Index_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth }}</span></p>
+                    </p>
+                    
+                    <p>
+                        <b>6 Month Growth Rates:</b>
+                        <p>All Commodities: <span style="color: {% if latest_all_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_all_6_month_growth }}</span></p>
+                        <p>Fuel and Power: <span style="color: {% if latest_Fuel_and_Power_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_Power_6_month_growth }}</span></p>
+                        <p>Food Index: <span style="color: {% if latest_Food_Index_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth }}</span></p>
+                    </p>
+                  
+                    <p>
+                        <b>Yearly Growth Rates:</b>
+                        <p>All Commodities: <span style="color: {% if latest_all_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_all_yearly_growth }}</span></p>
+                        <p>Fuel and Power: <span style="color: {% if latest_Fuel_and_Power_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_Power_yearly_growth }}</span></p>
+                        <p>Food Index: <span style="color: {% if latest_Food_Index_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth }}</span></p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script | safe }}
+</script>
+{% endblock body %}
+
+

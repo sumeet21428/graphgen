@@ -1,0 +1,43 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Global GDP</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig19">
+                        {{ graph_div19 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>GDP Per Capita - Current USD</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig19">
+                        {{ graph_div191 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script19 | safe }}
+</script>
+{% endblock body %}
