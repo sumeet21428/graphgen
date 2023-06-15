@@ -5,5 +5,5 @@
 - Processed and visualized large datasets to identify valuable trends and patterns using tools like plotly and created a portal for easy access for the same using __Django__ .
 - These insights contributed to informed decision-making and a __deeper understanding of the economic landscape in India__.
 
-!(graphgen/img1.jpg)
+!(/Users/sumitmehra/Workspace/graphgen/img1.jpg)
 !(img2.jpeg)
