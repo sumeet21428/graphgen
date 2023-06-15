@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4df8227c-d4f0-462a-901f-e419da52cd54/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/graphgen",
+    "appService.deploySubpath": "."
+}
