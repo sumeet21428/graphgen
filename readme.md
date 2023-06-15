@@ -6,3 +6,4 @@
 - These insights contributed to informed decision-making and a __deeper understanding of the economic landscape in India__.
 
 ![Image](img1.jpg)
+![Image](img2.jpeg)
