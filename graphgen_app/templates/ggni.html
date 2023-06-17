@@ -6,7 +6,7 @@
 {% block body %}
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <b>Gross National Income - Atlas Method, Current USD</b>
@@ -18,8 +18,63 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-md-9">
+    <!-- Choropleths -->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 1990</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div1990 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2000</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2000 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2010</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2010 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2021</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2021 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <b>Gross National Income Per Capita - Atlas Method, Current USD</b>
@@ -31,9 +86,61 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Choropleths -->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 1990 (Per Capita)</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div1990_pcap | safe }}
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2000 (Per Capita)</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2000_pcap | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2010 (Per Capita)</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2010_pcap | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: 2021 (Per Capita)</b>
+                </div>
+                <div class="card-body">
+                    {{ graph_div2021_pcap | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Add graph script -->

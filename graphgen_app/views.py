@@ -1100,6 +1100,66 @@ def process_chorodata(df):
     
     return df2
 
+import plotly.graph_objects as go
+
+def choropleth_plotter_ggdp(data, year, titl):
+    data_temp = data[['Country', 'Country Code', year]].dropna()
+    data_temp['logval'] = data_temp[year].apply(lambda x: np.log10(x) if pd.notnull(x) else np.nan)
+
+    fig = go.Figure(data=go.Choropleth(
+        locations=data_temp['Country Code'],
+        z=data_temp['logval'],
+        text=data_temp['Country'],
+        hovertemplate='%{text}<br>GDP: $%{customdata: .2e}',
+        customdata=data_temp[year],
+        colorscale='RdBu',
+        marker_line_color='white',
+        zmin=8.5,
+        zmax=13.5
+    ))
+
+    fig.update_layout(
+        title=titl,
+        geo=dict(
+            showcountries=True,
+            countrycolor='white'
+        ),
+        coloraxis=dict(
+            colorbar=dict(
+                title='Log Scale'
+            )
+        )
+    )
+    
+    return fig.to_html(full_html=False, include_plotlyjs=False)
+
+
+
+
+def choropleth_plotter_ggdp_pcap(data, year, titl):
+    data_temp = data[['Country', 'Country Code', year]].dropna()
+
+    fig = go.Figure(data=go.Choropleth(
+        locations=data_temp['Country Code'],
+        z=data_temp[year],
+        text=data_temp['Country'],
+        hovertemplate='%{text}<br>GDP Per Capita: $%{z:.2f}',
+        colorscale='RdBu',
+        marker_line_color='white',
+        zmin=0,
+        zmax=60000
+    ))
+
+    fig.update_layout(
+        title=titl,
+        geo=dict(
+            showcountries=True,
+            countrycolor='white'
+        )
+    )
+
+    return fig.to_html(full_html=False, include_plotlyjs=False)
+
 def ggdp(request):    
     GGDP_ini = pd.read_excel("graphgen_app/files/API_NY.GDP.MKTP.CD_DS2_en_excel_v2_5454813.xls", sheet_name=0)
     GGDP_pcap_ini = pd.read_excel("graphgen_app/files/API_NY.GDP.PCAP.CD_DS2_en_excel_v2_5454823.xls", sheet_name=0)
@@ -1108,50 +1168,19 @@ def ggdp(request):
     graph_div19 = line_plot2(GGDP, 'Global GDP')
     graph_div191 = line_plot2(GGDP_pcap, 'Gross Domestic Product Per Capita - Current USD')
     
-    
-    def choropleth_plotter(data, year, titl):
-        # data_temp = data[['Country', 'Country Code', year]].dropna()
-        # data_temp = data_temp.dropna()
-        # data_temp['logval'] = data_temp.iloc[:, -1].apply(lambda x: np.log10(x) if pd.notnull(x) else np.nan)
-        # data_temp = go.Choropleth(
-        #     locations=data_temp['Country Code'],
-        #     z=data_temp['logval'],
-        #     text=data_temp['Country'],
-        #     hovertemplate='%{text}<br>GDP: $%{customdata: .2e}',  
-        #     customdata=data_temp[year],
-        #     colorscale='RdBu',
-        #     marker_line_color='white',
-        #     colorbar_title='Log Scale',
-        #     zmin=8.5,
-        #     zmax=13.5
-        # )
-        
-        data_temp = data[['Country', 'Country Code', year]].dropna()
-        data_temp = data_temp.dropna()
-        
-
-        layout = go.Layout(
-            title=titl,
-        )
-        #fig = go.Figure(data=data_temp, layout=layout)
-        fig = px.imshow(data_frame=data_temp,
-                    labels=dict(x='Country Code', y='Country', color='GDP Per Capita'),
-                    color=data_temp[year],
-                    hover_name='Country',
-                    hover_data={year: True},
-                    title=titl,
-                    color_continuous_scale='RdBu',
-                    range_color=(0, 60000))
-        # Convert the plot to HTML div string
-        graph_div = plot(fig, output_type='div')
-
-        return graph_div
-
     choro_GGDP = process_chorodata(GGDP_ini)
-    graph_div1990 = choropleth_plotter(choro_GGDP, '1990', 'GDP: 1990')
-    graph_div2000 = choropleth_plotter(choro_GGDP, '2000', 'GDP: 2000')
-    graph_div2010 = choropleth_plotter(choro_GGDP, '2010', 'GDP: 2010')
-    graph_div2021 = choropleth_plotter(choro_GGDP, '2021', 'GDP: 2021')
+    choro_GGDP_pcap = process_chorodata(GGDP_pcap_ini)
+    
+    graph_div1990 = choropleth_plotter_ggdp(choro_GGDP, '1990', 'GDP: 1990')
+    graph_div2000 = choropleth_plotter_ggdp(choro_GGDP, '2000', 'GDP: 2000')
+    graph_div2010 = choropleth_plotter_ggdp(choro_GGDP, '2010', 'GDP: 2010')
+    graph_div2021 = choropleth_plotter_ggdp(choro_GGDP, '2021', 'GDP: 2021')
+    graph_div1990_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '1990', 'GDP Per Capita: 1990')
+    graph_div2000_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2000', 'GDP Per Capita: 2000')
+    graph_div2010_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2010', 'GDP Per Capita: 2010')
+    graph_div2021_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2021', 'GDP Per Capita: 2021')
+
+    
 
     context = {
         'graph_div19' : graph_div19,
@@ -1160,14 +1189,57 @@ def ggdp(request):
         'graph_div2000': graph_div2000,
         'graph_div2010': graph_div2010,
         'graph_div2021': graph_div2021,
+        'graph_div1990_pcap': graph_div1990_pcap,
+        'graph_div2000_pcap': graph_div2000_pcap,
+        'graph_div2010_pcap': graph_div2010_pcap,
+        'graph_div2021_pcap': graph_div2021_pcap,
     }
+
     return render(request, 'ggdp.html', context)
 
-def GForex(request):    
-    Gforex_ini = pd.read_excel("graphgen_app/files/API_FI.RES.TOTL.CD_DS2_en_excel_v2_5455044.xls", sheet_name=0)
-    Gforex = process_data(Gforex_ini)
-    graph_div20 = line_plot2(Gforex, 'Global Forex Reserves (Including Gold)')
-    return render(request, 'GForex.html', {'graph_div20': graph_div20})
+
+def choropleth_plotter_ggni(data, year, titl):
+    data_temp = data[['Country', 'Country Code', year]].dropna()
+    data_temp['logval'] = data_temp[year].apply(lambda x: np.log10(x) if pd.notnull(x) else np.nan)
+
+    fig = px.choropleth(
+        data_frame=data_temp,
+        locations='Country Code',
+        color='logval',
+        hover_name='Country',
+        hover_data={year: ':.2e'},
+        color_continuous_scale='RdBu',
+        range_color=(8.5, 13.5),
+        labels={'logval': 'Log Scale'},
+        title=titl
+    )
+
+    fig.update_geos(showcountries=True, countrycolor='white')
+    fig.update_coloraxes(colorbar=None)
+
+    return fig.to_html(full_html=False, include_plotlyjs=False)
+
+
+
+
+
+def choropleth_plotter_ggni_pcap(data, year, titl):
+    data_temp = data[['Country', 'Country Code', year]].dropna()
+    
+    fig = px.choropleth(
+        data_frame=data_temp,
+        locations='Country Code',
+        color=year,
+        hover_name='Country',
+        hover_data={year: ':.2f'},
+        color_continuous_scale='RdBu',
+        labels={'color': 'GNI Per Capita'},
+        title=titl
+    )
+    
+    fig.update_geos(showcountries=True, countrycolor='white')
+
+    return fig.to_html(full_html=False, include_plotlyjs=False)
 
 def ggni(request):    
     GGNI_ini = pd.read_excel("graphgen_app/files/API_NY.GNP.ATLS.CD_DS2_en_excel_v2_5455179.xls", sheet_name=0)
@@ -1176,11 +1248,39 @@ def ggni(request):
     GGNI_pcap = process_data(GGNI_pcap_ini)
     graph_div21 = line_plot2(GGNI, 'Gross National Income - Atlas Method, Current USD')
     graph_div211 = line_plot2(GGNI_pcap, 'Gross National Income Per Capita - Atlas Method, Current USD')
+    
+    choro_GGNI = process_chorodata(GGNI_ini)
+    choro_GGNI_pcap = process_chorodata(GGNI_pcap_ini)
+    
+    graph_div1990 = choropleth_plotter_ggni(choro_GGNI, '1990', 'GNI, Atlas Method: 1990')
+    graph_div2000 = choropleth_plotter_ggni(choro_GGNI, '2000', 'GNI, Atlas Method: 2000')
+    graph_div2010 = choropleth_plotter_ggni(choro_GGNI, '2010', 'GNI, Atlas Method: 2010')
+    graph_div2021 = choropleth_plotter_ggni(choro_GGNI, '2021', 'GNI, Atlas Method: 2021')
+    graph_div1990_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '1990', 'GDP Per Capita, Atlas Method: 1990')
+    graph_div2000_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2000', 'GDP Per Capita, Atlas Method: 2000')
+    graph_div2010_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2010', 'GDP Per Capita, Atlas Method: 2010')
+    graph_div2021_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2021', 'GDP Per Capita, Atlas Method: 2021')
+
+    
     context = {
         'graph_div21' : graph_div21,
         'graph_div211' : graph_div211,
+        'graph_div1990' : graph_div1990,
+        'graph_div2000' : graph_div2000,
+        'graph_div2010' : graph_div2010,
+        'graph_div2021' : graph_div2021,
+        'graph_div1990_pcap' : graph_div1990_pcap,
+        'graph_div2000_pcap' : graph_div2000_pcap,
+        'graph_div2010_pcap' : graph_div2010_pcap,
+        'graph_div2021_pcap' : graph_div2021_pcap,
     }
     return render(request, 'ggni.html', context)
+
+def GForex(request):    
+    Gforex_ini = pd.read_excel("graphgen_app/files/API_FI.RES.TOTL.CD_DS2_en_excel_v2_5455044.xls", sheet_name=0)
+    Gforex = process_data(Gforex_ini)
+    graph_div20 = line_plot2(Gforex, 'Global Forex Reserves (Including Gold)')
+    return render(request, 'GForex.html', {'graph_div20': graph_div20})
 
 def GEmissions(request):    
     Emm_ini = pd.read_excel("graphgen_app/files/API_EN.ATM.GHGT.KT.CE_DS2_en_excel_v2_5455104.xls", sheet_name=0)
