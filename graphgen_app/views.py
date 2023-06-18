@@ -1128,7 +1128,10 @@ def choropleth_plotter_ggdp(data, year, titl):
             colorbar=dict(
                 title='Log Scale'
             )
-        )
+        ),
+        
+        width=1000,  # Set the width of the figure to 800 pixels
+        height=600 
     )
     
     return fig.to_html(full_html=False, include_plotlyjs=False)
@@ -1155,7 +1158,11 @@ def choropleth_plotter_ggdp_pcap(data, year, titl):
         geo=dict(
             showcountries=True,
             countrycolor='white'
-        )
+        ),
+        width=1000,  # Set the width of the figure to 800 pixels
+        height=600,
+        coloraxis=dict(
+        colorbar=None)  # Remove the colorbar
     )
 
     return fig.to_html(full_html=False, include_plotlyjs=False)
@@ -1215,7 +1222,8 @@ def choropleth_plotter_ggni(data, year, titl):
     )
 
     fig.update_geos(showcountries=True, countrycolor='white')
-    fig.update_coloraxes(colorbar=None)
+    fig.update_coloraxes(colorbar=None),
+    fig.update_layout(width=1000, height=600)
 
     return fig.to_html(full_html=False, include_plotlyjs=False)
 
@@ -1238,6 +1246,7 @@ def choropleth_plotter_ggni_pcap(data, year, titl):
     )
     
     fig.update_geos(showcountries=True, countrycolor='white')
+    fig.update_layout(width=1000, height=600)
 
     return fig.to_html(full_html=False, include_plotlyjs=False)
 
@@ -1398,10 +1407,8 @@ def search_results(request):
     # Default case, no match found
     return redirect('')  # Redirect to the homepage or any other appropriate URL
 
-
 def graph_view(request):
     return render(request, "base.html",)
 
 def documentation(request):
     return render(request, "documentation.html")
-    
