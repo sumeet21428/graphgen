@@ -1178,14 +1178,14 @@ def ggdp(request):
     choro_GGDP = process_chorodata(GGDP_ini)
     choro_GGDP_pcap = process_chorodata(GGDP_pcap_ini)
     
-    graph_div1990 = choropleth_plotter_ggdp(choro_GGDP, '1990', 'GDP: 1990')
-    graph_div2000 = choropleth_plotter_ggdp(choro_GGDP, '2000', 'GDP: 2000')
-    graph_div2010 = choropleth_plotter_ggdp(choro_GGDP, '2010', 'GDP: 2010')
-    graph_div2021 = choropleth_plotter_ggdp(choro_GGDP, '2021', 'GDP: 2021')
-    graph_div1990_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '1990', 'GDP Per Capita: 1990')
-    graph_div2000_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2000', 'GDP Per Capita: 2000')
-    graph_div2010_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2010', 'GDP Per Capita: 2010')
-    graph_div2021_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2021', 'GDP Per Capita: 2021')
+    graph_div1990 = choropleth_plotter_ggdp(choro_GGDP, '1990', 'GDP: 1990 (log scale)')
+    graph_div2000 = choropleth_plotter_ggdp(choro_GGDP, '2000', 'GDP: 2000 (log scale)')
+    graph_div2010 = choropleth_plotter_ggdp(choro_GGDP, '2010', 'GDP: 2010 (log scale)')
+    graph_div2021 = choropleth_plotter_ggdp(choro_GGDP, '2021', 'GDP: 2021 (log scale)')
+    graph_div1990_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '1990', 'GDP Per Capita: 1990 (nominal scale)')
+    graph_div2000_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2000', 'GDP Per Capita: 2000 (nominal scale)')
+    graph_div2010_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2010', 'GDP Per Capita: 2010 (nominal scale)')
+    graph_div2021_pcap = choropleth_plotter_ggdp_pcap(choro_GGDP_pcap, '2021', 'GDP Per Capita: 2021 (nominal scale)')
 
     
 
@@ -1241,7 +1241,7 @@ def choropleth_plotter_ggni_pcap(data, year, titl):
         hover_name='Country',
         hover_data={year: ':.2f'},
         color_continuous_scale='RdBu',
-        labels={'color': 'GNI Per Capita'},
+        labels={'Nominal Scale': 'GNI Per Capita'},
         title=titl
     )
     
@@ -1261,14 +1261,14 @@ def ggni(request):
     choro_GGNI = process_chorodata(GGNI_ini)
     choro_GGNI_pcap = process_chorodata(GGNI_pcap_ini)
     
-    graph_div1990 = choropleth_plotter_ggni(choro_GGNI, '1990', 'GNI, Atlas Method: 1990')
-    graph_div2000 = choropleth_plotter_ggni(choro_GGNI, '2000', 'GNI, Atlas Method: 2000')
-    graph_div2010 = choropleth_plotter_ggni(choro_GGNI, '2010', 'GNI, Atlas Method: 2010')
-    graph_div2021 = choropleth_plotter_ggni(choro_GGNI, '2021', 'GNI, Atlas Method: 2021')
-    graph_div1990_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '1990', 'GDP Per Capita, Atlas Method: 1990')
-    graph_div2000_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2000', 'GDP Per Capita, Atlas Method: 2000')
-    graph_div2010_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2010', 'GDP Per Capita, Atlas Method: 2010')
-    graph_div2021_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2021', 'GDP Per Capita, Atlas Method: 2021')
+    graph_div1990 = choropleth_plotter_ggni(choro_GGNI, '1990', 'GNI, Atlas Method: 1990 (log scale)')
+    graph_div2000 = choropleth_plotter_ggni(choro_GGNI, '2000', 'GNI, Atlas Method: 2000 (log scale)')
+    graph_div2010 = choropleth_plotter_ggni(choro_GGNI, '2010', 'GNI, Atlas Method: 2010 (log scale)')
+    graph_div2021 = choropleth_plotter_ggni(choro_GGNI, '2021', 'GNI, Atlas Method: 2021 (log scale)')
+    graph_div1990_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '1990', 'GDP Per Capita, Atlas Method: 1990 (nominal scale)')
+    graph_div2000_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2000', 'GDP Per Capita, Atlas Method: 2000 (nominal scale)')
+    graph_div2010_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2010', 'GDP Per Capita, Atlas Method: 2010 (nominal scale)')
+    graph_div2021_pcap = choropleth_plotter_ggni_pcap(choro_GGNI_pcap, '2021', 'GDP Per Capita, Atlas Method: 2021 (nominal scale)')
 
     
     context = {
