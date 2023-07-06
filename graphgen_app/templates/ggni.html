@@ -20,59 +20,47 @@
         </div>
     </div>
 
-    <!-- Choropleths -->
+    <!-- Search Box for Choropleth -->
     <div class="row mt-5">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <b>Choropleth: 1990</b>
+                    <b>Choropleth: Global GNI</b>
                 </div>
                 <div class="card-body">
-                    {{ graph_div1990 | safe }}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="year" placeholder="Enter a year (1960-2021)">
+                        <select name="indicator">
+                            <option value="ggni">GNI</option>
+                            <option value="ggni_pcap">GNI per capita</option>
+                        </select>
+                        <button type="submit">Search</button>
+                    </form>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Generated Choropleth -->
     <div class="row mt-5">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <b>Choropleth: 2000</b>
+                    <b>Choropleth: {{ selected_year }}</b>
                 </div>
                 <div class="card-body">
-                    {{ graph_div2000 | safe }}
+                    <div id="choroplethPlot">
+                        {{ generated_choropleth | safe }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 2010</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div2010 | safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 2021</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div2021 | safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <div class="row mt-5">
         <div class="col-md-12">
             <div class="card">
@@ -83,59 +71,6 @@
                     <div id="fig211">
                         {{ graph_div211 | safe }}
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Choropleths -->
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 1990 (Per Capita)</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div1990_pcap | safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 2000 (Per Capita)</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div2000_pcap | safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 2010 (Per Capita)</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div2010_pcap | safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <b>Choropleth: 2021 (Per Capita)</b>
-                </div>
-                <div class="card-body">
-                    {{ graph_div2021_pcap | safe }}
                 </div>
             </div>
         </div>
