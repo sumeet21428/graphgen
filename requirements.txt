@@ -120,3 +120,5 @@ xattr==0.10.1
 xlrd==2.0.1
 yarl==1.9.2
 zipp==3.16.2
+selenium==4.11  # Replace <version> with the actual version of Selenium you're using
+chromedriver-autoinstaller==0.2.2  # Optional: This package automatically installs the appropriate ChromeDriver
