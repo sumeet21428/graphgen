@@ -1,0 +1,80 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+IIP Graph
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Index of Industrial Production</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph15">
+                        {{ graph_div15 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 float-end">
+            <div class="card">
+                <div class="card-header">
+                    <b>Growth Rates</b>
+                </div>
+                <div class="card-body">
+                    <p><b>Monthly Growth Rate:</b></p>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth }}</span></p>
+                    <p>Manufacturing: <span style="color: {% if latest_manufacturing_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_manufacturing_month_growth }}</span></p>
+                    <p>Electricity: <span style="color: {% if latest_electricity_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_electricity_month_growth }}</span></p>
+                    <p><b>6-Month Growth Rate:</b></p>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth }}</span></p>
+                    <p>Manufacturing: <span style="color: {% if latest_manufacturing_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_manufacturing_6_month_growth }}</span></p>
+                    <p>Electricity: <span style="color: {% if latest_electricity_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_electricity_6_month_growth }}</span></p>
+                    <p><b>Yearly Growth Rate:</b></p>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth }}</span></p>
+                    <p>Manufacturing: <span style="color: {% if latest_manufacturing_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_manufacturing_yearly_growth }}</span></p>
+                    <p>Electricity: <span style="color: {% if latest_electricity_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_electricity_yearly_growth }}</span></p>
+                </div>
+            </div>
+        </div>   
+    </div>
+    
+    <!-- Heatmaps -->
+    <div class="row mt-5">
+        <div class="col-md-4">
+            {{ manu_heatmap | safe }}
+        </div>
+        <div class="col-md-4">
+            {{ elec_heatmap | safe }}
+        </div>
+        <div class="col-md-4">
+            {{ genindx_heatmap | safe }}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        The index of industrial production (IIP) indicated a growth of 5.1 per cent in industrial output during 2022-23, compared to the previous year's growth of 11.4 per cent. The manufacturing sector, which holds a significant share in the industrial sector, played a crucial role in driving the recovery of the industrial sector.
+    </p>
+
+    <p>
+        Manufacturing companies faced challenges in profitability due to supply chain bottlenecks arising from the war in Ukraine and high raw material costs. Although higher sales in Q1:2022-23 helped mitigate the impact of increased raw material expenses, the global slowdown negatively affected sales in Q2:2022-23, leading to a faster decline in profits. In Q3:2022-23, despite some moderation in input costs, the decline in profits could only be partially mitigated.
+    </p>
+
+    <p>
+        During H1:2022-23, the manufacturing sector saw growth in 19 out of 23 industry groups, driven by the production of motor vehicles, coke and refined petroleum products, basic metals, chemical products, and machinery and equipment. However, in H2:2022-23, manufacturing activity slowed down to 2.4 per cent due to a global demand slowdown. Sectors with labor-intensive operations such as textiles, wearing apparel, leather and related products, computer, electronic and optical products, and electrical equipment experienced contraction in H2:2022-23. On the other hand, industries like basic metals, motor vehicles, trailers and semi-trailers, machinery and equipment, and other non-metallic mineral products continued to expand. Despite facing supply chain challenges, the automobile sector made a comeback in 2022-23, supported by strong sales during the festive season.
+    </p>
+</div>
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script15 | safe }}
+</script>
+{% endblock body %}

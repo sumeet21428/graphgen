@@ -1,0 +1,86 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Global GDP</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig19">
+                        {{ graph_div19 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Box for Choropleth -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: Global GDP</b>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="year" placeholder="Enter a year (1960-2021)">
+                        <select name="indicator">
+                            <option value="ggdp">GDP</option>
+                            <option value="ggdp_pcap">GDP per capita</option>
+                        </select>
+                        <button type="submit">Search</button>
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Choropleth -->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: {{ selected_year }}</b>
+                </div>
+                <div class="card-body">
+                    <div id="choroplethPlot">
+                        {{ generated_choropleth | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Global GDP - Per Capita</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig191">
+                        {{ graph_div191 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+<!-- Add graph scripts -->
+<script type="text/javascript">
+    {{ graph_script19 | safe }}
+</script>
+{% endblock body %}

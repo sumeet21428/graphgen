@@ -1,0 +1,88 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Total Greenhouse Gas Emmissions (kt of CO2 equivalent)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig22">
+                        {{ graph_div22 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>CO2 Emissions (kt)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig221">
+                        {{ graph_div221 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>CO2 Emissions (metric tons per capita)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig222">
+                        {{ graph_div222 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Methane Emissions (kt of CO2 equivalent)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig223">
+                        {{ graph_div223 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Nitrous Oxide Emissions (thousand metric tons of CO2 equivalent)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig224">
+                        {{ graph_div224 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script22 | safe }}
+</script>
+{% endblock body %}

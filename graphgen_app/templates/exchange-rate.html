@@ -1,0 +1,65 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+Exchange Rate Graph
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Exchange Rate</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph8">
+                        {{ graph_div8 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 float-end">
+            <div class="card">
+                <div class="card-header">
+                    <b>Exchange Rate</b>
+                </div>
+                <div class="card-body">
+                    
+                    <p>Daily USD Growth: <span style="color: {% if daily_usd_growth < 0 %}red{% else %}green{% endif %}">{{ daily_usd_growth }}</span></p>
+                    <p>Daily Pound Growth: <span style="color: {% if daily_pound_growth < 0 %}red{% else %}green{% endif %}">{{  daily_pound_growth }}</span></p>
+                    <p>Daily Euro Growth: <span style="color: {% if daily_euro_growth < 0 %}red{% else %}green{% endif %}">{{ daily_euro_growth }}</span></p>
+                    <p>Daily Yen Growth: <span style="color: {% if daily_yen_growth < 0 %}red{% else %}green{% endif %}">{{ daily_yen_growth }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        Volatility has been drawn back from global financial markets and stability in failures of bank in advanced economies
+    </p>
+
+    <p>
+        Available projections suggest slow growth in 2023 as well as 2024 after recovery from sudden shocks, such as - the war in Ukraine, persistent elevation in food and energy inflation, and the tightening of financial conditions in response to aggressive and synchronised monetary policy tightening across the world
+    </p>
+
+    <p>
+        Green transition, a common global goal, has opened up new investment opportunities in renewables and electric vehicles, but the high costs of lowering carbon emissions could impinge on developmental aspirations. Digitalisation also offers new growth opportunities, but the costs of tech and cyber disruptions are also rising. 
+    </p>
+
+    <p>
+        For emerging market economies (EMEs) - year of lingering pandemic woes, surging food and energy prices and even shortages, unsustainable debt overhangs and repeated incidence of global spillovers that brought in their train volatile capital flows and generalised risk aversion.
+    </p>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script16 | safe }}
+</script>
+{% endblock body %}

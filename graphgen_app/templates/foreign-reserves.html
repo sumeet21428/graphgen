@@ -1,0 +1,96 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Foreign Exchange Reserves (US Dollar Million)</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig9">
+                        {{ graph_div9 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card float-end">
+                <div class="card-header">
+                    <b>Growth Rates</b>
+                </div>
+                <div class="card-body">
+
+                    <p>
+                        <b>Weekly Growth Rate:</b>
+                        <span style="color: {% if latest_general_weekly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_weekly_growth }}</span>
+                    </p>
+                    
+
+                    <p>
+                        <b>Monthly Growth Rate:</b>
+                        <span style="color: {% if latest_general_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth }}</span>
+                    </p>
+                    
+                    <p>
+                        <b>6-Month Growth Rate:</b>
+                        <span style="color: {% if latest_general_6_month_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth }}</span>
+                    </p>
+                    
+                    
+                    <p>
+                        <b>Yearly Growth Rate:</b>
+                        <span style="color: {% if latest_general_yearly_growth < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth }}</span>
+                    </p>
+        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        The reserves saw a rise from USD 532.66 billion at the end of September 2022 to USD 578.45 billion at the end of March 2023.
+    <p>
+        Excluding the effects of valuation, the balance of payments basis showed a decrease of US$ 14.7 billion in foreign exchange reserves during the period of April-December 2022, in contrast to an increase of US$ 63.5 billion in the same period of 2021. Taking into account valuation effects, the nominal foreign exchange reserves decreased by US$ 44.6 billion during April-December 2022, compared to an increase of US$ 56.6 billion in the corresponding period of the previous year. The valuation loss amounted to US$ 29.9 billion during April-December 2022, whereas there was a valuation loss of US$ 6.9 billion during April-December 2021.
+    </p>
+
+    <p>
+        As of the end of March 2023, the Reserve Bank's net forward asset (receivable) stood at USD 23.60 billion.
+    </p>
+
+    <p>
+        Based on India's International Investment Position (IIP) as of the end of December 2022, which covers the period between the end of December 2021 and the end of December 2022, external assets decreased by USD 52.3 billion, and external liabilities decreased by USD 30.2 billion. The net IIP as of the end of December 2022 was negative at USD 374.5 billion, compared to a negative net IIP of USD 352.4 billion at the end of December 2021. This indicates that the total external liabilities exceed the external assets in both periods. The negative gap has increased on a year-on-year basis.
+    </p>
+
+    <p>
+        By the end of December 2022, the foreign exchange reserves cover of imports (on a balance of payments basis) increased to 9.3 months, up from 8.9 months at the end of September 2022. The ratio of short-term debt (with original maturity) to reserves, which stood at 23.8 percent at the end of September 2022, declined to 23.0 percent by the end of December 2022. Additionally, the ratio of volatile capital flows (including cumulative portfolio inflows and outstanding short-term debt) to reserves decreased from 75.5 percent at the end of September 2022 to 72.7 percent at the end of December 2022.
+    </p>
+
+    <p>
+        As of the end of March 2023, the Reserve Bank held a total of 794.64 metric tonnes of gold, which includes gold deposits of 56.32 metric tonnes. Out of this, 437.22 metric tonnes of gold is held in safe custody overseas with the Bank of England and the Bank of International Settlements (BIS), while 301.10 metric tonnes of gold is held domestically. In terms of value (USD), the share of gold in the total foreign exchange reserves increased from approximately 7.06 percent at the end of September 2022 to about 7.81 percent at the end of March 2023.
+    </p>
+
+    <p>
+        As of the end of March 2023, out of the total Foreign Currency Assets (FCA) amounting to USD 509.69 billion, USD 411.65 billion was allocated to securities investments, USD 75.51 billion was deposited with other central banks and the Bank for International Settlements (BIS), and the remaining balance of USD 22.52 billion consisted of deposits with commercial banks overseas.
+    </p>
+
+    <p>
+        In the week ending April 28, India's foreign exchange reserves surged to a 10-month high of $588.8 billion, rebounding from a decline to $524.5 billion in October of the previous year, when the Indian rupee reached an all-time low against the US dollar. Following the October period, the Reserve Bank of India (RBI) capitalised on the rupee's growth by acquiring over $8 billion in the spot market during November and December. Additionally, the RBI engaged in dollar purchases in the forward market, with purchases amounting to $20.4 billion in February after declining to $241 million in October.
+    </p>
+</div>
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script | safe }}
+</script>
+{% endblock body %}

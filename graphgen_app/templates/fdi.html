@@ -1,0 +1,156 @@
+
+{% extends 'graph.html' %}
+
+{% block title %}
+Foreign Direct Investment Graph
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Foreign Investment Inflows</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph16">
+                        {{ graph_div16 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Heatmaps -->
+    <div class="row mt-10">
+        <div class="col-md-4">
+            {{ FDI_heatmap | safe }}
+        </div>
+
+        <div class="col-md-4">
+            {{ NPI_heatmap | safe }}
+        </div>
+
+        <div class="col-md-4">
+            {{ net_heatmap | safe }}
+        </div>
+    </div>
+
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Direct Investments</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph161">
+                        {{ graph_div161 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 float-beginning">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <b>Portfolio Investments</b>
+                </div>
+                <div class="card-body">
+                    <div id="graph162">
+                        {{ graph_div162 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        Gross foreign direct investment (FDI) flows experienced a decline of approximately 16 percent, reaching $71 billion in 2022-2023, marking the first such decline in a decade. This decrease can be primarily attributed to the slowdown in the global economy. In the previous fiscal year of 2021-2022, FDI inflows amounted to $81.97 billion, indicating a growth of 10 percent compared to fiscal 2019-2020. The net FDI also witnessed a decline of nearly 27 percent, amounting to $28 billion in 2022-2023, as opposed to $38.6 billion recorded the previous year. This decline can be attributed to a moderation in gross foreign direct investment inflows and an increase in repatriation.
+    </p>
+
+    <p>
+        The sectors that experienced the largest decline in FDI inflows compared to the previous year were manufacturing, computer services, and communication services. Among the contributing factors to this decline were reduced investments from the United States, Switzerland, and Mauritius, which were the major contributors to the decrease during this period.
+    </p>
+
+    <p>
+        In 2022, India ranked as the second-largest recipient of FDI in the semiconductor industry, attracting a total of $26.2 billion. The United States secured the top position with FDI amounting to $33.8 billion, surpassing India's inflows.
+    </p>
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script16 | safe }}
+</script>
+{% endblock body %}
+
+
+{% comment %} {% extends 'graph.html' %}
+
+{% block title %}
+Foreign Direct Investment
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FDI_FPI_plot
+            </div>
+            <div class="card-body">
+                <div id="FDI_FPI_plot">
+                    {{ FDI_FPI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FDI_plot
+            </div>
+            <div class="card-body">
+                <div id="FDI_plot">
+                    {{ FDI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                FPI_plot 
+            </div>
+            <div class="card-body">
+                <div id="FPI_plot">
+                    {{ FPI_plot | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+{% endblock body %} {% endcomment %}
+
+

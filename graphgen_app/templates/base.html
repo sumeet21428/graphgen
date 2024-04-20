@@ -1,0 +1,222 @@
+{% extends 'graph.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid bg-dark text-white">
+    <div class="container">
+        <h1 class="display-4">Welcome to the Economic Data Portal</h1>
+        <p class="lead">Explore the latest economic indicators and visualize data through interactive graphs.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">WPI</h5>
+                    <p class="card-text">View the Wholesale Price Index (WPI) data and track inflation trends.</p>
+                    <a href="/wpi" class="btn btn-primary">Explore WPI</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">CPI</h5>
+                    <p class="card-text">Analyze the Consumer Price Index (CPI) and monitor changes in consumer prices.</p>
+                    <a href="/cpi" class="btn btn-primary">Explore CPI</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Exchange Rate</h5>
+                    <p class="card-text">Track currency exchange rates and their fluctuations over time.</p>
+                    <a href="/exchange-rate" class="btn btn-primary">Explore Exchange Rate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Foreign Exchange Reserves</h5>
+                    <p class="card-text">Discover the foreign exchange reserves of the country and their trends.</p>
+                    <a href="/foreign-reserves" class="btn btn-primary">Explore Foreign Reserves</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Key Rates</h5>
+                    <p class="card-text">Monitor key interest rates and their impact on the economy.</p>
+                    <a href="/key-rates" class="btn btn-primary">Explore Key Rates</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">GDP Rates</h5>
+                    <p class="card-text">Analyze the Gross Domestic Product (GDP) growth rates.</p>
+                    <a href="/gdp" class="btn btn-primary">Explore GDP Rates</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">SCB Food Bank Credit</h5>
+                    <p class="card-text">Examine the credit provided by the SCB Food Bank.</p>
+                    <a href="/scb-food-bank" class="btn btn-primary">Explore SCB Food Bank Credit</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Balance of Payments</h5>
+                    <p class="card-text">Analyze the balance of payments and understand international transactions.</p>
+                    <a href="/balance-of-payments" class="btn btn-primary">Explore Balance of Payments</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Index of Industrial Production (IIP)</h5>
+                    <p class="card-text">Provides valuable insights in trends in industrial economy in various sectors.</p>
+                    <a href="/iip" class="btn btn-primary">Explore IIP</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add more cards for additional indicators here -->
+        
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">FDI</h5>
+                    <p class="card-text">Examine the trends of Foreign Direct Investment.</p>
+                    <a href="/fdi" class="btn btn-primary">Explore FDI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1 class="header-title">India-Global Comparison</h1>
+    </header>
+    <br>
+    <header>
+        <h2 class="header-title">  Economic</h2>
+    </header>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global CPI</h5>
+                    <p class="card-text">Examine the comparison in trends of CPI of India and other countries.</p>
+                    <a href="/gcpi" class="btn btn-primary">Explore Global CPI</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global FDIs</h5>
+                    <p class="card-text">Examine the comparison in trends of FDIs of India and other countries.</p>
+                    <a href="/gfdi" class="btn btn-primary">Explore Global FDIs</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global GDP</h5>
+                    <p class="card-text">Examine the comparison in trends of GDP of India and other countries.</p>
+                    <a href="/ggdp" class="btn btn-primary">Explore Global GDPs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global Forex</h5>
+                    <p class="card-text">Examine the comparison in trends of Forex data of India and other countries.</p>
+                    <a href="/GForex" class="btn btn-primary">Explore Global Forex Trends</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global GNIs</h5>
+                    <p class="card-text">Examine the comparison in trends of GNI of India and other countries.</p>
+                    <a href="/ggni" class="btn btn-primary">Explore Global GNIs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <header>
+        <h2 class="header-title">Environmental</h2>
+    </header>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Emissions</h5>
+                    <p class="card-text">Examine the comparisontrends of global emissions of India and other countries.</p>
+                    <a href="/GEmissions" class="btn btn-primary">Explore Global Emissions</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global Forest Area</h5>
+                    <p class="card-text">Examine the comparison in trends of Forest Cover of India and other countries.</p>
+                    <a href="/GForest" class="btn btn-primary">Explore Global Forest Area trends</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Global Renewable Energy</h5>
+                    <p class="card-text">Examine trends of Renewable Energy Sources of India and other countries.</p>
+                    <a href="/GRenewables" class="btn btn-primary">Explore Renewable Energy trends</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text-center">
+        <p class="text-muted small mb-0">Presented by:</p>
+        <p class="text-muted small">Sumeet Mehra | Udit Sharma | Hathim Shaaz</p>
+    </div>
+</div>
+
+{% comment %} <footer class="bg-dark text-white text-right py-2">
+    Presented by: Sumeet Mehra | Udit Sharma | Hathim Shaaz
+</footer> {% endcomment %}
+{% endblock body %}
+
+<!-- Add additional styling and scripts as required -->

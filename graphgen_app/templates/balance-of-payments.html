@@ -1,0 +1,47 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+Balance of Payments
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Balance of Payments
+                </div>
+                <div class="card-body">
+                    <div id="graph14" style="width: 130%; height: 550px;">
+                        {{ graph_div14 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        In the fourth quarter (January-March) of 2022-23, India's current account deficit (CAD) contracted to $1.3 billion, equivalent to 0.2 percent of the GDP, compared to $16.8 billion or 2 percent of GDP in the previous quarter. The decrease in CAD can be attributed to a reduction in the trade deficit, which declined to $52.6 billion in Q4 of 2022-23 from $71.3 billion in Q3 of 2022-23, as well as strong performance in services exports, as reported by the Reserve Bank of India (RBI).
+    </p>
+
+    <p>
+        Merchandise exports experienced a growth of 6.3 percent, aided by a surplus in the invisibles account, which includes services, transfers, and income. The invisibles account improved to $198.2 billion, primarily driven by the services sector. Software services exports reached $146.8 billion. Additionally, private transfers, including remittances from overseas Indians, increased to $112.5 billion in FY23, compared to $89.1 billion in FY22.
+    </p>
+
+    <p>
+        The surplus in the capital account, representing the flow of capital, decreased from $85.9 billion in FY22 to $59 billion in FY23. This decline was primarily attributed to reduced inflows of foreign direct investment, which moderated to $28 billion in FY23 from $38.6 billion in FY22. Foreign portfolio investment also experienced outflows of $5.2 billion, although it was lower compared to the outflows of $16.8 billion in the same period the previous year. Additionally, even external commercial borrowing (ECB) inflows were lower due to higher global interest rates, resulting in net outflows of $3.8 billion in ECBs.
+    </p>
+
+    <p>
+        Going forward, it is expected that CAD will moderate.
+    </p>
+</div>
+{% endblock body %}
+

@@ -1,0 +1,80 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+GDP
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                GDP : Constant
+            </div>
+            <div class="card-body">
+                <div id="graph11">
+                    {{ graph_div11 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates</b>
+            </div>
+            <div class="card-body">
+                <p><b>GDP(Constant):</b></p>
+                <p>Quarterly Growth:  <span style="color: {% if latest_general_q_month_growth_const < 0 %}red{% else %}green{% endif %}">{{ latest_general_q_month_growth_const }}</span></p>
+                <p>Yearly Growth: <span style="color: {% if latest_general_yearly_growth_const < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_const }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                GDP : Current
+            </div>
+            <div class="card-body">
+                <div id="graph12">
+                    {{ graph_div12 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates</b>
+            </div>
+            <div class="card-body">
+                <p><b>GDP(Current):</b></p>
+                <p>Quarterly Growth:  <span style="color: {% if latest_general_q_month_growth_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_q_month_growth_current }}</span></p>
+                <p>Yearly Growth: <span style="color: {% if latest_general_yearly_growth_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_current }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        Despite the global turmoil triggered by the war in Ukraine, the Indian economy demonstrated remarkable resilience in 2022-23 and achieved a growth rate of 7.0 percent, surpassing other major economies worldwide. Apart from a brief scare caused by the Omicron variant early in 2022, the impact of COVID-19 remained subdued for most of the year, leading to the restoration of consumer and business confidence.
+    </p>
+
+    <p>
+        The Indian economy achieved a significant milestone as the real GDP in level terms exceeded the pre-pandemic level of 2019-20 by 9.9 percent. Revised GDP growth figures for the preceding three years showed upward revisions of 20 bps (2019-20), 80 bps (2020-21), and 40 bps (2021-22), indicating that the growth momentum was stronger than initially estimated. Both consumption and investment demand gained traction, contributing to the growth. However, adverse external demand conditions and a larger deficit in net exports weighed on the overall growth in 2022-23. The economy maintained robust growth in H1:2022-23, with a notable acceleration in momentum from Q1 to Q2. However, the momentum moderated in Q3:2022-23.
+    </p>
+
+    <p>
+        Following a remarkable recovery post-COVID, India's exports experienced a slowdown, with growth easing to 11.5 percent in 2022-23 from a notable 29.3 percent in the previous year (2021-22). Meanwhile, imports grew at a faster pace of 18.8 percent, resulting in a widening trade deficit. As a result, the drag from net exports expanded to 2.9 percent of GDP in 2022-23, compared to 1.3 percent in the previous year.
+    </p>
+</div>
+
+{% endblock body %}

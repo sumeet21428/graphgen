@@ -1,0 +1,25 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+Key Rates
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Key Rates
+                </div>
+                <div class="card-body">
+                    <div id="graph10">
+                        {{ graph_div10 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+

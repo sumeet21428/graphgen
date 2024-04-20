@@ -1,0 +1,23 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+SCB Food Bank
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    SCB Food Bank
+                </div>
+                <div class="card-body">
+                    <div id="graph13">
+                        {{ graph_div13 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

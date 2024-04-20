@@ -1,0 +1,278 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+CPI Graph
+{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Combined, Current
+            </div>
+            <div class="card-body">
+                <div id="graph2">
+                    {{ graph_div2 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - CPI Combined, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_comb_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_month_growth_comb_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_comb_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_comb_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_comb_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_comb_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_comb_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_comb_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Combined Inflyoy
+            </div>
+            <div class="card-body">
+                <div id="graph3">
+                    {{ graph_div3 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Rural Current
+            </div>
+            <div class="card-body">
+                <div id="graph4">
+                    {{ graph_div4 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - Rural, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_rural_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index :<span style="color: {% if latest_Food_Index_month_growth_rural_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_rural_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_rural_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_rural_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_rural_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_rural_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_rural_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Rural Infloyoy
+            </div>
+            <div class="card-body">
+                <div id="graph5">
+                    {{ graph_div5 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Urban Current
+            </div>
+            <div class="card-body">
+                <div id="graph6">
+                    {{ graph_div6 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 float-end">
+        <div class="card">
+            <div class="card-header">
+                <b>Growth Rates - CPI Combined, Current</b>
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Monthly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_month_growth_urban_current < 0 %}red{% else %}green{% endif %}">{{ latest_general_month_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_month_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_month_growth_urban_current < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_month_growth_urban_current  }}</span></p>
+                </p>
+                
+                <p>
+                    <b>6 Month Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_6_month_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_6_month_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_6_month_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_6_month_growth_urban_current  }}</span></p>
+                </p>
+              
+                <p>
+                    <b>Yearly Growth Rates:</b>
+                    <p>General Index: <span style="color: {% if latest_general_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_general_yearly_growth_urban_current  }}</span></p>
+                    <p>Fuel and Light: <span style="color: {% if latest_Fuel_and_light_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Fuel_and_light_yearly_growth_urban_current  }}</span></p>
+                    <p>Consumer Food Index: <span style="color: {% if latest_Food_Index_yearly_growth_urban_current  < 0 %}red{% else %}green{% endif %}">{{ latest_Food_Index_yearly_growth_urban_current }}</span></p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                CPI : Urban Inflyoy
+            </div>
+            <div class="card-body">
+                <div id="graph7">
+                    {{ graph_div7 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    &nbsp;
+    &nbsp;
+    <h1> Review </h1>
+    &nbsp;
+    <p>
+        In 2022-23, there was a significant increase in average inflation compared to the previous year, while the volatility of inflation, as indicated by the standard deviation of the consumer price index (CPI) inflation, was slightly lower. Additionally, the distribution of inflation throughout the year exhibited a negative skewness, with inflation prints exceeding the average in several months.
+    </p>
+    &nbsp;
+    <h2> Global Level Impact </h2>
+    <p>
+        The increase in commodity prices in Q1:2022-23 was primarily driven by energy, food, and fertilisers, following the war in Ukraine and the recovery of global demand. Crude oil prices experienced a significant rise, reaching a peak of US$ 117 per barrel in June 2022. However, the decision by the Organization of the Petroleum Exporting Countries (OPEC) and their allies (OPEC+) to reduce production targets in October 2022, along with the easing of supply constraints and synchronised monetary policy tightening, posed the risk of a global recession and led to a sharp correction in crude oil prices to US$ 76.5 per barrel in March 2023 (a 34.5 percent correction from the peak in June 2022).
+    </p>
+
+    <p>
+        Natural gas prices reached their highest point in August 2022 due to supply constraints in Europe caused by conflicts, but they eased significantly by March 2023 due to a milder winter and energy conservation measures in the European Union (EU). Metal prices declined sharply as global growth slowed and demand moderated in 2022-23. While international food prices moderated from their peak in May 2022 due to improved supply conditions in edible oils and grains, they remained above pre-conflict levels due to production declines caused by adverse weather conditions in major producing countries and trade restrictions.
+    </p>
+
+    <p>
+        Furthermore, higher prices of natural gas and coal impacted fertilizer production, leading to increased prices and higher input costs for food crops. These global commodity price developments contributed to a surge in consumer price inflation in both advanced economies (AEs) and emerging market and developing economies (EMDEs), necessitating synchronised monetary policy tightening throughout the year.
+    </p>
+
+    &nbsp;
+    <h2>Indian Impact</h2>
+    <p>
+        Headline inflation measured by the Consumer Price Index (CPI) in India remained above the upper tolerance level of 6 percent for 10 consecutive months starting from January 2022. However, it started to moderate in November-December due to the seasonal easing of food prices. Inflation then increased again in January-February 2023 before easing to 5.7 percent in March 2023.
+    </p>
+
+    <p>
+        The rise in headline inflation during the year was widespread and driven by the pass-through effect of higher global commodity prices, including crude oil, metals, and food prices, as well as adverse weather conditions in the domestic market. Following the peak in April 2022 after the war in Ukraine, inflation gradually eased due to improvements in global supply conditions, a record-high domestic food production, and targeted supply-side measures implemented by the government. These measures included excise duty cuts on petrol and diesel, lower import duties, and the imposition of export restrictions on certain agricultural items that were sensitive to inflation.
+    </p>
+
+    <p>
+        Additionally, the cumulative tightening of the policy repo rate by 250 basis points (bps) from May 2022 to February 2023 played a role in containing price pressures in the second half of the fiscal year 2022-23.
+    </p>
+
+    &nbsp;
+    <h2> Constituents of CPI and effect on them </h2>
+    <p>
+        Food and beverages inflation, which holds a weight of 45.9 percent in the Consumer Price Index (CPI), exhibited a wide range of 4.6 percent to 8.4 percent during the fiscal year 2022-23. This variability was influenced by a combination of factors, including the surge in global food and fertiliser prices due to conflicts, the adverse impact of heatwaves on domestic rabi crop production, elevated farm input costs, and seasonal price patterns.
+    </p>
+
+    <p>
+        The increase in vegetable prices, animal proteins, and cereals and their products played a significant role in driving up food inflation in the first half of the fiscal year. However, in the second half, the moderation in food inflation was primarily driven by the easing of vegetable prices, as well as prices of oils and fats.
+    </p>
+
+    <p>
+        Overall, the wide range of food and beverages inflation in 2022-23 can be attributed to a mix of shocks and seasonal dynamics, with various factors influencing the price movements of different food items throughout the year.
+    </p>
+
+    <p>
+        The average inflation rate for food and beverages stood at 6.7 percent in the fiscal year 2022-23, compared to 4.2 percent in the previous year, 2021-22. Among the various sub-groups within the food category, inflation increased in five sub-groups, while it moderated in the remaining seven sub-groups. Throughout a significant portion of the year, there were higher inflationary pressures observed in the prices of cereals, vegetables, milk, prepared meals, snacks, sweets, spices, and other related items, contributing to the overall increase in food inflation.
+    </p>
+
+    <p>
+        The early arrival of summer, along with heat waves and excessive rainfall, led to an increase in vegetable prices (which accounts for 13.2 percent of the CPI-Food and beverages index) during the first half of the fiscal year 2022-23. However, with the arrival of fresh crops in November 2022, the prices of vegetables started to decline. Consequently, the cumulative momentum of vegetable prices, which had been rising until October 2022, experienced a significant moderation in November and turned negative from December 2022 onwards. On average, vegetable prices recorded an inflation rate of 3.0 percent during the fiscal year 2022-23.
+    </p>
+
+    <p>
+        The prices of cereals and related products, which account for 21.1 percent of the CPI-Food and beverages index, experienced consistent growth in 2022-23. This growth was primarily driven by an increase in the prices of rice and wheat. The prices of wheat saw an upward trend due to a decline in domestic production during 2021-22 (-1.7 percent as per the 2021-22 Final Estimates compared to the 2020-21 Final Estimates). This decline in production was attributed to heat waves in the major wheat-producing states of Punjab and Haryana, as well as intermittent declines in stock levels, which fell below the buffer norms starting from August 2022.
+    </p>
+
+    <p>
+        The pressure on prices in the oils and fats category, which contributes 7.8 percent to the CPI-Food and beverages index, gradually eased from June 2022. This easing was primarily driven by a sharp decline in global prices of edible oils, particularly palm oil. During March-May 2022, the prices of edible oils increased significantly due to higher global prices caused by the Ukraine conflict and the imposition of an export ban on crude palm oil by Indonesia in April 2022, which severely impacted the global supply of edible oils. Additionally, the depreciation of the Indian Rupee, driven by a high dependence on edible oil imports, contributed to the rising domestic prices. However, the price momentum gradually eased as global prices softened, the export ban was lifted, and Indonesia removed the export levy until October 31, 2022.
+    </p>
+
+    <p>
+        Inflation in the prices of pulses, which carries a weight of 5.2 percent in the CPI-Food and beverages index, remained subdued during 2022-23. This was due to the extension of imports of tur and urad under the 'free category' until March 31, 2024, and the extension of zero AIDC (Agriculture Infrastructure and Development Cess) on lentil imports until March 2024. Additionally, higher overall production in 2021-22 contributed to the muted inflation. However, prices started increasing from August 2022 due to a decline in estimated kharif production of both tur and urad. Tur production decreased by 18.7 percent, and urad production decreased by 3.2 percent, as per the third Advance Estimate of 2022-23 compared to the 2021-22 Final Estimate.
+
+    </p>
+
+    <p>
+        Inflation in fruits, which carries a weight of 6.3 percent in the CPI-Food and beverages index, stayed within a relatively stable range throughout the year. The inflation in fruits was mainly influenced by fluctuations in the prices of seasonal fruits.
+    </p>
+
+    <p>
+        Spices experienced consistent double-digit inflation throughout the year 2022-23, with an average of 16.2 percent. This increase can be attributed to a general decrease in domestic production, specifically a decline of (-) 2.7 percent according to the 3rd Advance Estimate of 2021-22 compared to the Final Estimate of 2020-21, in key spices such as dry chillies, cumin, and coriander. The fuel group's contribution to headline inflation declined to 10.5 percent in 2022-23 from 13.1 percent in the previous year. Fuel inflation remained in double digits for a significant portion of the year, primarily due to the increase in domestic LPG and kerosene prices in line with the sharp rise in international prices. However, inflation moderated from its highest point of 11.8 percent in July 2022 as global crude oil prices eased and price hikes in LPG and electricity were relatively subdued.
+    </p>
+
+    <p>
+        Clothing and footwear inflation remained a significant area of concern, with an average of 9.5 percent in 2022-23. The increase in inflation primarily resulted from delayed transmission of input cost pressures, driven by the rising international prices of cotton (as indicated by the Cotton A Index) and reduced domestic cotton arrivals due to adverse weather conditions and pest infestations, leading to lower crop yields in major cotton-producing states.
+    </p>
+
+    <p>
+        Housing inflation remained subdued, with an average of 4.3 percent in 2022-23, indicating lower rental demand due to the prevalence of hybrid work culture. Excluding housing, inflation excluding food and fuel averaged at 6.6 percent in 2022-23, which is consistent with the level observed in the previous year.
+    </p>
+
+    
+
+
+
+
+</div>
+{% endblock body %}

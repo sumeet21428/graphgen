@@ -1,0 +1,85 @@
+{% extends 'graph.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Gross National Income - Atlas Method, Current USD</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig21">
+                        {{ graph_div21 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Box for Choropleth -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: Global GNI</b>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="year" placeholder="Enter a year (1960-2021)">
+                        <select name="indicator">
+                            <option value="ggni">GNI</option>
+                            <option value="ggni_pcap">GNI per capita</option>
+                        </select>
+                        <button type="submit">Search</button>
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Choropleth -->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Choropleth: {{ selected_year }}</b>
+                </div>
+                <div class="card-body">
+                    <div id="choroplethPlot">
+                        {{ generated_choropleth | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>Gross National Income Per Capita - Atlas Method, Current USD</b>
+                </div>
+                <div class="card-body">
+                    <div id="fig211">
+                        {{ graph_div211 | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Add graph script -->
+<script type="text/javascript">
+    {{ graph_script21 | safe }}
+</script>
+{% endblock body %}
